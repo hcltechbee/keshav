@@ -1,0 +1,32 @@
+package practice4;
+
+import java.util.*;
+
+public class UsingTreeSet {
+	public static void main(String args[])
+	{
+		TreeSet<String> ts=new TreeSet<>();
+		ts.add("keshav");
+		ts.add("shubham");
+		ts.add("raunak");
+		ts.add("zarer");
+		ts.add("Saurabh");
+		ts.add("shivam");
+		
+		System.out.println("name "+ts);
+		System.out.println("in descending order "+ts.descendingSet());
+		System.out.println("head set"+ ts.headSet("zarer", true));
+		System.out.println("printing subset "+ts.subSet("keshav","shubham")); 
+		
+		ts.pollFirst();
+		
+		//ts.forEach(p-> System.out.println(ts));
+		Iterator<String> it=ts.iterator();
+		while(it.hasNext())
+		{
+			System.out.println(it.next());
+		}
+		
+	}
+
+}
