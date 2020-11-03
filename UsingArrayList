@@ -1,0 +1,29 @@
+package practice;
+
+import java.util.ArrayList;
+
+public class UsingArraylist {
+	public static void main(String args[])
+	{
+		ArrayList<String> students= new ArrayList<String>();       
+		students.add("keshav");          // adding students to arraylist
+		students.add("padmesh");
+		students.add("gaurav");
+		students.add("lekhanshu");
+		System.out.println("Added student in arraylist are-> "+students);
+		students.remove("keshav");                               //removing keshav from list
+		System.out.println("after removing keshav-> "+students);
+		students.add(0,"keshav");                                  // adding keshav at index 0
+		System.out.println("adding keshav in list-> "+students);
+        if (students.contains("lekhanshu"))                       // using contains to find student 
+        {
+        	System.out.println("STUDENT FOUND IN LIST");
+        }
+        else 
+        {
+        	System.out.println("STUDENT NOT FOUND IN LIST");
+        }
+
+	}
+
+}
