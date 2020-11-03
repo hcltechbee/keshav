@@ -1,0 +1,35 @@
+package practice5;
+
+import java.util.*;
+
+public class UsingTreeMap {
+	public static void main(String args[])
+	{
+		TreeMap< Integer, String> tm = new TreeMap<>();
+		tm.put(5, "KESHAV");
+		tm.put(2, "RAHUL");
+		tm.put(8, "Aman");
+		tm.put(4, "Varun");
+		tm.put(1, "Deepak");
+		tm.put(6, "NAMAN");
+		tm.put(7, "KARAN ");
+		tm.put(3, "KABIR");
+		
+		for(Map.Entry print:tm.entrySet())
+		{
+			System.out.println("RANK :- "+ print.getKey()+"   NAME :- " +print.getValue());
+		}
+		
+		// PRINTING LIST IN DESCENDING ORDER
+		System.out.println("printing map in descending order: "+tm.descendingMap()); 
+		
+		// printing head 
+		System.out.println(" printing head "+ tm.headMap(4));
+		
+		// printing tail
+		System.out.println("printing tail"+ tm.tailMap(4, false));
+		
+		// printing submap 
+		System.out.println("  printing submap "+ tm.subMap(2, 6));
+	}
+}
