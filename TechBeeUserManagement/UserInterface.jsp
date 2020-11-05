@@ -98,10 +98,8 @@
                   Update User
                 </p>
               </a>
-            
-          
-          
-          
+   
+  
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -151,7 +149,7 @@
               <%@page import="com.classes.users.UsersDataBase"%>
               <%@page import="com.classes.users.Users"%>
               <%@page import="java.util.List"%>
-              <%@page import="com.servlet.users.FilterCheck"%>
+           
               
                 
               <%     
@@ -171,7 +169,7 @@
                 out.println("<td class=\"text-right py-0 align-middle\">");
                 out.println("<div class=\"btn-group btn-group-sm\">");
                 out.println("<a href='DeleteServlet?id="+e.getId()+"'");
-                out.println("class=\"btn btn-danger\">");
+                out.println("class=\"btn btn-danger\" onClick=\"myFunction()\">");
                 out.println("<i class=\"fas fa-trash\"></i></a>");
                 //out.println("<a href='DeleteServlet?id="+e.getId()+"' class="btn btn-danger"><i class="fas fa-trash"></i></a>");
                 out.println("</div>");
@@ -188,7 +186,7 @@
    
   <div class="row">
     <div class="col-12">
-      <a href="#" class="btn btn-secondary">Cancel</a>
+      <a href="UserInterface.jsp" class="btn btn-secondary">Cancel</a>
       <input type="submit" value="Save Changes" class="btn btn-success float-right">
     </div>
   </div>
@@ -206,7 +204,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.1.0-pre
     </div>
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2014-2020 <a href="#"> All rights reserved.
   </footer>
 
 <!-- jQuery -->
@@ -217,5 +215,10 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script>
+function myFunction() {
+  alert("USER HAS BEEN SUCCESSFULLY DELETED");
+}
+</script>
 </body>
 </html>
