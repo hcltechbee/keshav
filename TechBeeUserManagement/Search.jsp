@@ -130,9 +130,20 @@
         <div class="card-header">
           <h3 class="card-title"><b>USERS</b></h3>
         </div>
-            <a href="FilterUser.jsp" class="btn btn-info" style="background-color:grey;">FILTER USER : <i class="fas fa-filter"></i></a>
+           
         <div class="card-body p-0">
           <table class="table">
+             <%@page import="com.classes.users.UsersDataBase"%>
+              <%@page import="com.classes.users.Users"%>
+              <%@page import="java.util.List"%>
+              
+              <%     String nameToFilter=request.getParameter("NameToSearch");
+                      List<Users> list = UsersDataBase.getAllEmployees(nameToFilter);
+                      if (list.size()==0){
+                    	  out.println("USER DOES NOT EXIST");
+                      } else {
+              %>
+              
             <thead>
               <tr>
                 <th>UserID</th>
@@ -147,14 +158,7 @@
             <tbody>
         
        
-              <%@page import="com.classes.users.UsersDataBase"%>
-              <%@page import="com.classes.users.Users"%>
-              <%@page import="java.util.List"%>
-              
-              <%     String nameToFilter=request.getParameter("NameToSearch");
-                      List<Users> list = UsersDataBase.getAllEmployees(nameToFilter);
-              %>
-              
+           
               
               <%
               for(Users e:list){  
@@ -168,13 +172,13 @@
                 out.println("<td class=\"text-right py-0 align-middle\">");
                 out.println("<div class=\"btn-group btn-group-sm\">");
                 out.println("<a href='DeleteServlet?id="+e.getId()+"'");
-                out.println("class=\"btn btn-danger\">");
+                out.println("class=\"btn btn-danger\" onClick=\"myFunction()\">");
                 out.println("<i class=\"fas fa-trash\"></i></a>");
                 //out.println("<a href='DeleteServlet?id="+e.getId()+"' class="btn btn-danger"><i class="fas fa-trash"></i></a>");
-                out.println("</div>");
               out.println("</td>");
               }
               %> 
+              <% } %>
             </tbody>
           </table>
         </div>
@@ -184,7 +188,7 @@
    
   <div class="row">
     <div class="col-12">
-      <a href="#" class="btn btn-secondary">Cancel</a>
+      <a href="UserInterface.jsp" class="btn btn-secondary">Cancel</a>
       <input type="submit" value="Save Changes" class="btn btn-success float-right">
     </div>
   </div>
@@ -213,5 +217,10 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script>
+function myFunction() {
+  alert("USER HAS BEEN SUCCESSFULLY DELETED");
+}
+</script>
 </body>
 </html>
